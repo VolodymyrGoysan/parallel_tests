@@ -195,6 +195,7 @@ Options are:
 
     -n [PROCESSES]                   How many processes to use, default: available CPUs
     -p, --pattern [PATTERN]          run tests matching this regex pattern
+    -x, --exclude-pattern [PATTERN]  run tests excluding matches of this regex pattern
         --group-by [TYPE]            group tests by:
           found - order of finding files
           steps - number of cucumber/spinach steps
@@ -219,8 +220,9 @@ Options are:
         --ignore-tags [PATTERN]      When counting steps ignore scenarios with tags that match this pattern
         --nice                       execute test commands with low priority.
         --runtime-log [PATH]         Location of previously recorded test runtimes
-        --allowed-missing            Allowed percentage of missing runtimes (default = 50)
+        --allowed-missing [INT]      Allowed percentage of missing runtimes (default = 50)
         --unknown-runtime [FLOAT]    Use given number as unknown runtime (otherwise use average time)
+        --first-is-1                 Use "1" as TEST_ENV_NUMBER to not reuse the default test environment
         --verbose                    Print more output
     -v, --version                    Show Version
     -h, --help                       Show this.

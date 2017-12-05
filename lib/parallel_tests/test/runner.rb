@@ -204,8 +204,13 @@ module ParallelTests
         def find_tests(tests, options = {})
           (tests || []).map do |file_or_folder|
             if File.directory?(file_or_folder)
+              ex_pattern = options[:exclude_pattern]
               files = files_in_folder(file_or_folder, options)
-              files.grep(options[:suffix]||test_suffix).grep(options[:pattern]||//)
+                        .grep(options[:suffix]||test_suffix)
+                        .grep(options[:pattern]||//)
+
+              files = files.select{ |file| ex_pattern !~ file } if ex_pattern
+              files
             else
               file_or_folder
             end
