@@ -173,7 +173,7 @@ namespace :parallel do
         "--pattern '#{pattern}' "          \
         "--test-options '#{options}'"
 
-      command += " --exclude-pattern '#{exclude_pattern}'" if (exclude_pattern && test_framework == 'rspec')
+      command += " --exclude-pattern '#{exclude_pattern}'" if (exclude_pattern.present? && test_framework == 'rspec')
       abort unless system(command) # allow to chain tasks e.g. rake parallel:spec parallel:features
     end
   end
